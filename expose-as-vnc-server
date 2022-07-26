@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# User-facing facade
+# TODO: Add --help
+
+# Ensure x11vnc-run.sh exists in PATH
+export PATH="$PATH:$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+
+# xvfb-run must already be installed
+xvfb-run x11vnc-run.sh $@
