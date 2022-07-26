@@ -27,7 +27,7 @@ Payload commands exit code is propagated all the way.
 # "Installation"
 * Install dependencies: xvfb, xvfb-run and x11vnc
 * Git clone this repo to somewhere locally
-* Add to PATH: `export PATH=$PATH:<where you cloned to locally>
+* Add to PATH: `export PATH=$PATH:<where you cloned to locally>`
 
 
 # Usage Example
