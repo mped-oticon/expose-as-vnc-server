@@ -32,7 +32,7 @@ Payload commands exit code is propagated all the way.
 
 # Usage Example
 
-Step 1: First start something up and expose it as a VNC server:
+Step 1: First start something up (here `xterm`) and expose it as a VNC server:
 ```
 $ expose-as-vnc-server xterm
 The VNC desktop is:      kbnuxcsfw-mped:0
