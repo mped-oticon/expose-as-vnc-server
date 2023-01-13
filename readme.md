@@ -21,7 +21,7 @@ x11vnc will default to expose the current $DISPLAY.
 When payload command exits, x11vnc is killed and script exits.
 When script exists, xvfb-run exits.
 
-Payload commands exit code is propagated all the way.
+Payload command's exit code is propagated all the way.
 
 
 # "Installation"
@@ -30,14 +30,21 @@ Payload commands exit code is propagated all the way.
 * Add to PATH: `export PATH=$PATH:<where you cloned to locally>`
 
 
-# Usage Example
+# Overrideable variables
+ * `X11VNC_PASSWD`: Password of VNC server. Default is `whatever`.
+ * `XVFB_SERVER_ARGS`: Args for Xvfb. Default is `-screen 0 1024x768x24`.
+
+
+# Usage Example 1
 
 Step 1: First start something up (here `xterm`) and expose it as a VNC server:
 ```
-$ expose-as-vnc-server xterm
+$ ./expose-as-vnc-server xterm
 The VNC desktop is:      kbnuxcsfw-mped:0
 PORT=5900
 ```
+
+NOTE: `xvfb-run` has a default sleep of 3 seconds before executing the payload command!
 
 Step 2: Connect to the new VNC server, from any machine:
 ```
@@ -46,8 +53,13 @@ vncviewer kbnuxcsfw-mped
 
 The default password is 'whatever'.
 
+# Usage Example 2
+`X11VNC_PASSWD=p4ssw0rd ./expose-as-vnc-server xterm`
+
+# Usage Example 3
+`XVFB_SERVER_ARGS="-screen 0 1920x1080x24" ./expose-as-vnc-server xterm`
+
 
 # Warning!
 * Not mature. Env var overrides may change name.
-* Contains a hardcoded password visible by ps(1).
-
+* Password visible by ps(1). You have been warned!
